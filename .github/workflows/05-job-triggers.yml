@@ -5,6 +5,7 @@ on:
         types: 
             - opened
     pull_request: 
+    workflow_dispatch:
 
 jobs:
   print_job:
