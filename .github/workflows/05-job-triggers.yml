@@ -5,6 +5,7 @@ on:
         types: 
             - opened
     pull_request: 
+    repository_dispatch: 
 
 jobs:
   print_job:
