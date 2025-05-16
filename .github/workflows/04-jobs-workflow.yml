@@ -21,7 +21,7 @@ jobs:
         cat report.txt
 
     - name: "Echo Statement"
-      run: sleep 15              
+      run: sleep 5              
 
     - uses: actions/upload-artifact@v4
       with:
@@ -45,4 +45,42 @@ jobs:
         name: report-artifact
 
     - name: "Echo Statement"
-      run: sleep 30      
+      run: sleep 5     
+
+  third_print_job:
+    name: "second_print_job"
+    runs-on: ubuntu-latest
+    needs: second_print_job
+
+    steps:
+    - name: Checkout Code Base
+      uses: actions/checkout@v4  
+
+    - name: "Echo Statement"
+      run: echo "!!! Welcome to my first workflow in Github !!!"
+    
+    - uses: actions/download-artifact@v4
+      with:
+        name: report-artifact
+
+    - name: "Echo Statement"
+      run: sleep 30    
+
+  fourth_print_job:
+    name: "second_print_job"
+    runs-on: ubuntu-latest
+    needs: first_print_job
+
+    steps:
+    - name: Checkout Code Base
+      uses: actions/checkout@v4  
+
+    - name: "Echo Statement"
+      run: echo "!!! Welcome to my first workflow in Github !!!"
+    
+    - uses: actions/download-artifact@v4
+      with:
+        name: report-artifact
+
+    - name: "Echo Statement"
+      run: sleep 30          
