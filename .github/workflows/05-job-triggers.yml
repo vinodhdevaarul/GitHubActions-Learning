@@ -5,10 +5,6 @@ on:
         types: 
             - opened
     pull_request: 
-    workflow_dispatch:
-    schedule:
-    - cron: '*/5 * * * *'
-    repository_dispatch:  
 
 jobs:
   print_job:
