@@ -19,7 +19,12 @@ jobs:
         echo "This is the report" > report.txt
         ls -ltra
         cat report.txt
-      
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: report-artifact
+        path: ./report.txt
+
     - name: "Echo Statement"
       run: sleep 30      
 
@@ -34,8 +39,9 @@ jobs:
     - name: "Echo Statement"
       run: echo "!!! Welcome to my first workflow in Github !!!"
     
-    - name: "Print report.txt"
-      run: cat report.txt
-    
+    - uses: actions/download-artifact@v4
+      with:
+        name: report-artifact
+
     - name: "Echo Statement"
       run: sleep 30      
