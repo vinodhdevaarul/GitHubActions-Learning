@@ -6,6 +6,8 @@ on:
             - opened
     pull_request: 
     workflow_dispatch:
+    schedule:
+    - cron: '*/1 * * * *' 
 
 jobs:
   print_job:
