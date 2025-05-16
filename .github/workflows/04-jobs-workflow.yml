@@ -20,13 +20,13 @@ jobs:
         ls -ltra
         cat report.txt
 
+    - name: "Echo Statement"
+      run: sleep 30              
+
     - uses: actions/upload-artifact@v4
       with:
         name: report-artifact
         path: ./report.txt
-
-    - name: "Echo Statement"
-      run: sleep 30      
 
   second_print_job:
     name: "second_print_job"
