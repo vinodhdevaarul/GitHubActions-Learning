@@ -14,8 +14,14 @@ jobs:
     - name: "Echo Statement"
       run: echo "!!! Welcome to my first workflow in Github !!!"
     
+    - name: "Print report.txt"
+      run: |
+        echo "This is the report" > report.txt
+        ls -ltra
+        cat report.txt
+      
     - name: "Echo Statement"
-      run: sleep 30
+      run: sleep 30      
 
   second_print_job:
     name: "second_print_job"
@@ -27,6 +33,9 @@ jobs:
 
     - name: "Echo Statement"
       run: echo "!!! Welcome to my first workflow in Github !!!"
+    
+    - name: "Print report.txt"
+      run: cat report.txt
     
     - name: "Echo Statement"
       run: sleep 30      
