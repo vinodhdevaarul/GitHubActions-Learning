@@ -1,0 +1,16 @@
+name: "06 Workflow Concurrency"
+
+on: 
+  push:
+
+jobs:
+  print_job:
+    name: "Printing Hello World"
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: "Echo Statement"
+      run: echo "!!! Welcome to my first workflow in Github !!!"
+
+    - name: "Sleep for 300s"
+      run: sleep 300
