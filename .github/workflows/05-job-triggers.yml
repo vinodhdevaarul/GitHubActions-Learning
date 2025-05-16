@@ -1,0 +1,15 @@
+name: "05 Job Triggers"
+
+on: 
+    issues: 
+        types: 
+            - opened
+
+jobs:
+  print_job:
+    name: "Printing Hello World"
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: "Echo Statement"
+      run: echo "!!! Welcome to my first workflow in Github !!!"
