@@ -1,19 +1,18 @@
 name: "06 Workflow Concurrency"
 
 on: 
-  push:
-
+    pull_request: 
+    workflow_dispatch:
+    push:
+    
 jobs:
   print_job:
-    name: "Printing Hello World"
+    name: "Concurrency Demo"
     runs-on: ubuntu-latest
-    concurrency: 
-      group: prod-group
-      cancel-in-progress: true
 
     steps:
     - name: "Echo Statement"
       run: echo "!!! Welcome to my first workflow in Github !!!"
-
-    - name: "Sleep for 300s"
-      run: sleep 300
+    
+    - name: "Echo Statement"
+      run: sleep 600
