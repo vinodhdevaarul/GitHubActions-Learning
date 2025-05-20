@@ -9,6 +9,9 @@ jobs:
   print_job:
     name: "Concurrency Demo"
     runs-on: ubuntu-latest
+    concurrency:
+      group: concurrency-group
+      cancel-in-progress: true
 
     steps:
     - name: "Echo Statement"
