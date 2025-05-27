@@ -18,7 +18,7 @@ jobs:
       run: echo "::error::title=MyFirstError,file=app.js,line=2,endLine=3"
 
     - name: "Debug Text"
-      run: echo "::debug::this is a debug message"
+      run: echo "::debug this is a debug message"
 
     - name: "Notice Text"
       run: echo "::notice::This is a info message"
@@ -26,5 +26,12 @@ jobs:
     - name: "Warning Text"
       run: echo "::warning::This is a warning message"
 
-    # - name: "Grouping Text"
-    #   run: echo "::warning::This is a warning message"      
+    - name: "Grouping Text"
+      run: |
+        echo "::group::MyGroupOfLogs"
+        echo "This is line 1"
+        echo "This is line 2"
+        echo "This is line 3"
+        echo "This is line 4"
+        echo "::endgroup::""
+        
