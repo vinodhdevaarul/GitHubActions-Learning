@@ -17,9 +17,26 @@ jobs:
         echo "true = false: ${{ true == false}}"
         echo "with () ${{ 1 < 2 && (2==2 && 3 < 5)}}"
 
-    # - name: "Contexts in GitHub"
-    #   run: |
-    #     echo "${GITHUB_CONTEXT}"
-
     - name: ENV values
       run : env
+
+    - name: "Contexts in GitHub"
+      run: |
+        echo "${{ toJson(github) }}
+
+    - name: "Contexts in JOB"
+      run: |
+        echo "${{toJson(job)}}"        
+
+    - name: "Contexts in JOBS"
+      run: |
+        echo "${{toJson(jobs)}}"        
+
+    - name: "Contexts in STEPS"
+      run: |
+        echo "${{toJson(steps)}}"       
+
+    - name: "Contexts in SECRETS"
+      run: |
+        echo "${{toJson(secrets)}}"           
+        
