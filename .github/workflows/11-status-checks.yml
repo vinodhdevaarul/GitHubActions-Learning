@@ -20,3 +20,10 @@ jobs:
     - name: "Packaging"
       if: failure()
       run: echo "ran on failure of previous step"      
+
+    - name: "sleep"
+      run: sleep 60
+
+    - name: "Packaging 2"
+      if: cancelled()
+      run: echo "ran on cancel of previous step"            
