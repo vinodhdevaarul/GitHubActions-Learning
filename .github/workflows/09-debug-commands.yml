@@ -1,0 +1,30 @@
+name: "09 debug-commands"
+
+on: push
+
+jobs:
+  debug_job:
+    name: "Debug Job"
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: "Normal Text"
+      run: echo "Normal Text"
+
+    - name: "Error Text"
+      run: echo "::error::Something is Missing.Hence Erroring"
+
+    - name: "Error Text in detail"
+      run: echo "::error::title=MyFirstError,file=app.js,line=2,endLine=3"
+
+    - name: "Debug Text"
+      run: echo "::debug::this is a debug message"
+
+    - name: "Notice Text"
+      run: echo "::notice::This is a info message"
+
+    - name: "Warning Text"
+      run: echo "::warning::This is a warning message"
+
+    # - name: "Grouping Text"
+    #   run: echo "::warning::This is a warning message"      
