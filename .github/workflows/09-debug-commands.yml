@@ -33,5 +33,11 @@ jobs:
         echo "This is line 2"
         echo "This is line 3"
         echo "This is line 4"
-        echo "::endgroup::""
+        echo "::endgroup::"
+
+    - name: "Secret Text"
+      run: echo "::add-mask::password12345"
+
+    - name: "Secret Password"
+      run: echo "My password is password12345"      
         
