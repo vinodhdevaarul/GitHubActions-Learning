@@ -5,9 +5,10 @@ on:
   issues: 
 
 jobs:
-  print_job:
-    name: "Printing Hello World"
+  run_job_on_push:
+    name: "Run Job on Push"
     runs-on: ubuntu-latest
+    if: github.event_name == 'push'
 
     steps:
     - name: "Expressions Statement"
@@ -23,22 +24,31 @@ jobs:
       run : env
 
     - name: "Contexts in GitHub"
-      if: github.event_name == 'push'
       run: |
         echo "${{ toJson(github) }}"
 
     - name: "Contexts in JOB"
-      if: github.event_name == 'push'
       run: |
         echo "${{toJson(job)}}"        
 
     - name: "Contexts in STEPS"
-      if: github.event_name == 'push'
       run: |
         echo "${{toJson(steps)}}"       
 
     - name: "Contexts in SECRETS"
-      if: github.event_name == 'push'
       run: |
         echo "${{toJson(secrets)}}"           
+
+  run_job_on_issues:
+    name: "Run Job on Issues"
+    runs-on: ubuntu-latest
+    if: github.event_name == 'issues'
+
+    steps:
+    - name: "Running on Issues"
+      run: |
+        echo "!!! Welcome to my first workflow in Github !!!"
+        echo "String compare abcd==Abcd ${{ 'abcd' == 'Abcd'}} "
         
+
+       
