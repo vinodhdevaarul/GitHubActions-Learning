@@ -1,0 +1,18 @@
+name: "08 Expressions-and-Contexts"
+
+on: push
+
+jobs:
+  print_job:
+    name: "Printing Hello World"
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: "Expressions Statement"
+      run: |
+        echo "!!! Welcome to my first workflow in Github !!!"
+        echo "String compare abcd==Abcd ${{ 'abcd' == 'Abcd'}} "
+        echo "1 > 2 : ${{ 1 > 2 }}"
+        echo "1 < 2 : ${{ 1 < 2 }}"
+        echo "true = false: ${{ true == false}}"
+        echo "with () ${{ 1 < 2 && (2==2 && 3 < 5)}}"
