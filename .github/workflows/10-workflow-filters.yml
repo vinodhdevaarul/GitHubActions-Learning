@@ -2,13 +2,31 @@ name: "10-workflow-filters"
 
 on: 
   push:
-    branches-ignore: 
+    branches: 
       - "main"
+      - "feature/*"
+
+  issues:
+    types: 
+      - opened   
 
 jobs:
-  workflow-filters:
-    name: "10-workflow-filters"
+  workflow-filters-on-main:
+    name: "10-workflow-filters-on-main"
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+    - name: "Echo Statement"
+      run: echo "!!! Welcome to my first workflow in Github !!!"
+    
+    - name: "sleep"
+      run: sleep 60
+
+  workflow-filters-on-feature:
+    name: "10-workflow-filters-on-feature"
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref,'feature/')
 
     steps:
     - name: "Echo Statement"
