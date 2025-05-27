@@ -2,9 +2,9 @@ name: "10-workflow-filters"
 
 on: 
   push:
-    branches: 
+    branches-ignore: 
       - "main"
-      
+
 jobs:
   workflow-filters:
     name: "10-workflow-filters"
