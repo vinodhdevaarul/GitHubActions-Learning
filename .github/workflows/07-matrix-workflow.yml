@@ -8,13 +8,14 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, ubuntu-18.04, ubuntu-20.04, windows-latest]
+        images: [hello-world, alpine, busybox]
 
     runs-on: ${{ matrix.os }}
     name: "Printing Hello World"
   
     steps:
-      - name: "Echo Statement"
-        run: echo "!!! Welcome to my first workflow in Github !!!"
+      - name: "printing docker info on ${{ matrix.os }} with image ${{ matrix.images }}"
+        run: docker info
 
       - name: sleep
         run: sleep 30  
