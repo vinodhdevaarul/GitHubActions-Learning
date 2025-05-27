@@ -1,6 +1,8 @@
 name: "08 Expressions-and-Contexts"
 
-on: push
+on: 
+  push:
+  issues: 
 
 jobs:
   print_job:
@@ -21,18 +23,22 @@ jobs:
       run : env
 
     - name: "Contexts in GitHub"
+      if: github.event_name == 'push'
       run: |
         echo "${{ toJson(github) }}"
 
     - name: "Contexts in JOB"
+      if: github.event_name == 'push'
       run: |
         echo "${{toJson(job)}}"        
 
     - name: "Contexts in STEPS"
+      if: github.event_name == 'push'
       run: |
         echo "${{toJson(steps)}}"       
 
     - name: "Contexts in SECRETS"
+      if: github.event_name == 'push'
       run: |
         echo "${{toJson(secrets)}}"           
         
