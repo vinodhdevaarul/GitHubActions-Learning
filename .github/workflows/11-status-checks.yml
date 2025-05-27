@@ -17,6 +17,11 @@ jobs:
         echo "!!! Code Quality !!!"
         exit 1
 
+    - name: "Code Quality steps information"
+      if: steps.code_quality.conclusion == 'failure'
+      run: |
+        echo "checked for failure of previous job"
+        
     - name: "Packaging"
       if: failure()
       run: echo "ran on failure of previous step"      
@@ -27,4 +32,6 @@ jobs:
 
     - name: "Packaging 2"
       if: cancelled()
-      run: echo "ran on cancel of previous step"            
+      run: echo "ran on cancel of previous step"    
+
+      
