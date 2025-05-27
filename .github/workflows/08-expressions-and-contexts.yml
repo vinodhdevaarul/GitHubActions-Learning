@@ -22,7 +22,7 @@ jobs:
 
     - name: "Contexts in GitHub"
       run: |
-        echo "${{ toJson(github) }}
+        echo "${{ toJson(github) }}"
 
     - name: "Contexts in JOB"
       run: |
