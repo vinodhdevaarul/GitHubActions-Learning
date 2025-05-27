@@ -39,5 +39,5 @@ jobs:
       run: echo "::add-mask::password12345"
 
     - name: "Secret Password"
-      run: echo "My password is password1234567"      
+      run: echo "My password is password12345678"      
         
