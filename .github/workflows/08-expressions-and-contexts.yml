@@ -16,3 +16,10 @@ jobs:
         echo "1 < 2 : ${{ 1 < 2 }}"
         echo "true = false: ${{ true == false}}"
         echo "with () ${{ 1 < 2 && (2==2 && 3 < 5)}}"
+
+    # - name: "Contexts in GitHub"
+    #   run: |
+    #     echo "${GITHUB_CONTEXT}"
+
+    - name: ENV values
+      run : env
