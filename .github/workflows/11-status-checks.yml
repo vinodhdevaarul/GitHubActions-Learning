@@ -1,0 +1,22 @@
+name: "11-status-checks"
+
+on: push
+
+jobs:
+  status-checks:
+    name: "11-status-checks"
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: "Build Step"
+      run: echo "!!! Build Successful !!!"
+
+    - name: "Code Quality"
+      id: code_quality
+      run: |
+        echo "!!! Code Quality !!!"
+        exit 1
+
+    - name: "Packaging"
+      if: failure()
+      run: echo "ran on failure of previous step"      
