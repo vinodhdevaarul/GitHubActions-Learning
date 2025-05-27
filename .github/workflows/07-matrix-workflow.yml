@@ -24,6 +24,11 @@ jobs:
     steps:
       - name: "printing docker info on ${{ matrix.os }} with image ${{ matrix.images }}"
         run: docker info
+      
+      - name: checking docker ps
+        run: |
+          docker run ${{ matrix.images }}
+          docker ps -a
 
       - name: sleep
         run: sleep 30  
