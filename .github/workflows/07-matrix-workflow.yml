@@ -14,6 +14,9 @@ jobs:
             os: windows-latest
           - images: busybox
             os: windows-latest
+        include:
+          - images: nginx
+            os: ubuntu-latest
 
     runs-on: ${{ matrix.os }}
     name: "Printing Hello World"
